@@ -1,29 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CustomCursor } from "@/components/CustomCursor";
+import { Navigation } from "@/components/Navigation";
+import { HeroVideo } from "@/components/HeroVideo";
+import { Manifesto } from "@/components/Manifesto";
+import { Portfolio } from "@/components/Portfolio";
+import { Services } from "@/components/Services";
+import { Stats } from "@/components/Stats";
+import { Process } from "@/components/Process";
+import { Testimonials } from "@/components/Testimonials";
+import { ContactFooter } from "@/components/ContactFooter";
+import { FloatingConsultation } from "@/components/FloatingConsultation";
+import { WhatsAppBubble } from "@/components/WhatsAppBubble";
+import { ChatButton } from "@/components/ChatButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "GLAMORA — Transforming Spaces. Elevating Lifestyles." },
+      {
+        name: "description",
+        content:
+          "GLAMORA is a luxury interior design and wall styling atelier — crafting residences, offices and hospitality interiors with quiet, lived-in elegance.",
+      },
+      { property: "og:title", content: "GLAMORA — Luxury Interior & Wall Atelier" },
+      {
+        property: "og:description",
+        content:
+          "Premium wall solutions, interior design and consultation. Transforming spaces with cinematic craft.",
+      },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative bg-background text-foreground font-sans">
+      <CustomCursor />
+      <Navigation />
+      <HeroVideo />
+      <Manifesto />
+      <Portfolio />
+      <Services />
+      <Stats />
+      <Process />
+      <Testimonials />
+      <ContactFooter />
+
+      {/* Floating UI */}
+      <FloatingConsultation />
+      <WhatsAppBubble />
+      <ChatButton />
+    </main>
   );
 }
