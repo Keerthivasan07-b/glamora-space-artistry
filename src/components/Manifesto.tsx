@@ -32,9 +32,13 @@ export function Manifesto() {
               className="inline-block mr-[0.22em]"
             >
               {w === "quiet" || w === "story," ? (
-                <em style={{ color: "var(--brass)" }} className="not-italic font-display italic">
+                <em style={{ color: "var(--terracotta)" }} className="not-italic font-display italic">
                   {w}
                 </em>
+              ) : w === "light," || w === "material," ? (
+                <span style={{ color: "var(--olive)" }} className="font-display font-medium">
+                  {w}
+                </span>
               ) : (
                 w
               )}

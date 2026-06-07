@@ -63,11 +63,11 @@ export function HeroVideo() {
       >
         <div className="absolute inset-0" style={{
           background:
-            "linear-gradient(180deg, rgba(15,12,10,0.55) 0%, rgba(15,12,10,0.15) 35%, rgba(15,12,10,0.25) 65%, rgba(15,12,10,0.85) 100%)",
+            "linear-gradient(180deg, rgba(12,9,7,0.72) 0%, rgba(12,9,7,0.35) 35%, rgba(12,9,7,0.45) 65%, rgba(12,9,7,0.92) 100%)",
         }} />
         <div className="absolute inset-0" style={{
           background:
-            "radial-gradient(60% 80% at 50% 60%, transparent 30%, rgba(15,12,10,0.55) 100%)",
+            "radial-gradient(60% 80% at 50% 60%, transparent 30%, rgba(12,9,7,0.65) 100%)",
         }} />
       </motion.div>
 
@@ -84,7 +84,7 @@ export function HeroVideo() {
       {/* Content */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-20 flex h-screen flex-col justify-end px-6 md:px-12 pb-20 md:pb-28 text-background"
+        className="relative z-20 flex h-screen flex-col justify-center md:justify-end px-6 md:px-12 pb-12 md:pb-28 text-background"
       >
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 lg:col-span-8">
@@ -96,42 +96,61 @@ export function HeroVideo() {
               style={{ color: "var(--brass-glow)" }}
             >
               <span className="h-px w-10" style={{ background: "var(--brass-glow)" }} />
-              Interior Atelier — Est. Studio Practice
+              Atelier Glamora · L'Arte dell'Abitare — Est. Studio Practice
             </motion.div>
 
-            <h1 className="font-display leading-[0.92] tracking-tight text-balance">
-              {"Transforming Spaces.".split(" ").map((word, i) => (
+            <h1 className="font-display leading-[0.92] tracking-tight text-balance select-none">
+              <span className="inline-block overflow-hidden pb-2">
                 <motion.span
-                  key={i}
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1.2,
-                    delay: 1.5 + i * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="inline-block mr-[0.25em] text-5xl md:text-8xl lg:text-[9rem]"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="flex flex-wrap"
                 >
-                  {word}
+                  {"Transforming Spaces.".split(" ").map((word, i) => (
+                    <span key={i} className="inline-block overflow-hidden">
+                      <motion.span
+                        initial={{ y: "100%", opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{
+                          duration: 1.6,
+                          delay: 1.0 + i * 0.15,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
+                        className="inline-block mr-[0.25em] text-5xl md:text-8xl lg:text-[8.5rem] text-white"
+                        style={{ textShadow: "0 10px 40px rgba(0,0,0,0.2)" }}
+                      >
+                        {word}
+                      </motion.span>
+                    </span>
+                  ))}
                 </motion.span>
-              ))}
+              </span>
               <br />
-              {"Elevating Lifestyles.".split(" ").map((word, i) => (
+              <span className="inline-block overflow-hidden pb-2">
                 <motion.span
-                  key={i}
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1.2,
-                    delay: 1.9 + i * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="inline-block mr-[0.25em] italic text-5xl md:text-8xl lg:text-[9rem]"
-                  style={{ color: "var(--brass-glow)" }}
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                  className="flex flex-wrap"
                 >
-                  {word}
+                  {"Elevating Lifestyles.".split(" ").map((word, i) => (
+                    <span key={i} className="inline-block overflow-hidden">
+                      <motion.span
+                        initial={{ y: "100%", opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{
+                          duration: 1.6,
+                          delay: 1.3 + i * 0.15,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
+                        className="inline-block mr-[0.25em] italic text-5xl md:text-8xl lg:text-[8.5rem]"
+                        style={{ color: "var(--brass-glow)", textShadow: "0 10px 40px rgba(0,0,0,0.2)" }}
+                      >
+                        {word}
+                      </motion.span>
+                    </span>
+                  ))}
                 </motion.span>
-              ))}
+              </span>
             </h1>
           </div>
 

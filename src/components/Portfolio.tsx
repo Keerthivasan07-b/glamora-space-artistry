@@ -145,10 +145,10 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
                 </div>
                 <span
                   className="h-10 w-10 rounded-full grid place-items-center shrink-0"
-                  style={{ background: "var(--brass)" }}
+                  style={{ background: "var(--terracotta)" }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 5l7 7-7 7" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="var(--background)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
               </div>
@@ -182,7 +182,7 @@ export function Portfolio() {
               (01) Selected Works
             </div>
             <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance">
-              A sequence of <em className="italic" style={{ color: "var(--brass)" }}>spaces</em>.
+              A sequence of <em className="italic" style={{ color: "var(--terracotta)" }}>spaces</em>.
             </h2>
           </div>
           <p className="text-muted-foreground max-w-sm leading-relaxed">

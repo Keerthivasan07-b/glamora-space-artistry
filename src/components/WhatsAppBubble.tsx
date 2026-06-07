@@ -33,7 +33,7 @@ export function WhatsAppBubble() {
           animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
           exit={{ x: 30, opacity: 0, scale: 0.85 }}
           transition={{ type: "spring", damping: 16, stiffness: 220 }}
-          className="fixed right-6 bottom-28 z-[95] max-w-[280px]"
+          className="fixed-chat-widget-bubble fixed right-6 bottom-28 z-[95] max-w-[280px] transition-all duration-500"
         >
           <motion.div
             animate={{ y: [0, -4, 0] }}

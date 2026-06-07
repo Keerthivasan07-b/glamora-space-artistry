@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export function FloatingConsultation() {
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
   useEffect(() => {
     if (dismissed) return;
@@ -11,15 +12,35 @@ export function FloatingConsultation() {
     return () => clearTimeout(t);
   }, [dismissed]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolledPastHero(window.scrollY > window.innerHeight * 0.7);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (open && !dismissed && scrolledPastHero) {
+      document.body.setAttribute("data-consultation-open", "true");
+    } else {
+      document.body.removeAttribute("data-consultation-open");
+    }
+    return () => {
+      document.body.removeAttribute("data-consultation-open");
+    };
+  }, [open, dismissed, scrolledPastHero]);
+
   return (
     <AnimatePresence>
-      {open && !dismissed && (
+      {open && !dismissed && scrolledPastHero && (
         <motion.div
           initial={{ y: 80, opacity: 0, filter: "blur(12px)" }}
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           exit={{ y: 40, opacity: 0, filter: "blur(8px)" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed left-1/2 -translate-x-1/2 bottom-6 z-[100] w-[min(92vw,520px)]"
+          className="fixed-consultation-widget fixed left-1/2 -translate-x-1/2 bottom-6 z-[100] w-[min(92vw,520px)]"
         >
           <motion.div
             animate={{ y: [0, -6, 0] }}

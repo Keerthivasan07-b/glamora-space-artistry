@@ -46,7 +46,9 @@ export function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.08 }}
-            className="flex flex-col gap-2 md:border-l md:border-foreground/10 md:pl-6 first:border-l-0 first:pl-0"
+            className={`flex flex-col gap-2 md:border-l md:border-foreground/10 md:pl-6 first:border-l-0 first:pl-0 ${
+              i === 4 ? "col-span-2 items-center text-center md:col-span-1 md:items-start md:text-left md:border-l" : ""
+            }`}
           >
             <span className="font-display text-4xl md:text-6xl tracking-tight">
               <Counter to={s.value} suffix={s.suffix} />

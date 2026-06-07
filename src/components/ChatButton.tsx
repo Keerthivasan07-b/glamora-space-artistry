@@ -40,7 +40,7 @@ export function ChatButton() {
       data-cursor-label="Chat with us"
       aria-label="Chat with the studio"
       style={{ x: sx, y: sy }}
-      className="fixed right-6 bottom-6 z-[96]"
+      className="fixed-chat-widget-btn fixed right-6 bottom-6 z-[96] transition-all duration-500"
     >
       <span
         className="relative grid place-items-center h-14 w-14 rounded-full animate-breath"
